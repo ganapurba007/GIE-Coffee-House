@@ -61,7 +61,7 @@ document.addEventListener('alpine:init', () => {
                         item.quantity++;
                         item.total = item.price * item.quantity;
                         this.quantity++;
-                        this.total += newItem.price;
+                        this.total += item.price;
                         return item;
                     }
                 });
@@ -79,7 +79,7 @@ document.addEventListener('alpine:init', () => {
                         return item;
                     } else {
                         item.quantity--;
-                        item.total = item.price * quantity;
+                        item.total = item.price * item.quantity;
                         this.quantity--;
                         this.total -= item.price;
                         return item;
