@@ -123,7 +123,24 @@ const formData = new FormData(form);
 const data = new URLSearchParams(formData);
 const objData = Object.fromEntries(data);
 console.log(objData);
+const message = formatMesaage(objData);
+window.open('http://wa.me/6285786257585?text=' + encodeURIComponent(message));
 });
+
+
+
+
+// Format pesan WhatsApp
+const formatMesaage = (obj) => {
+    return `Data Customer
+    Nama: ${obj.name}
+    Email: ${obj.email}
+    No Hp: ${obj.phone}
+    Data Pesanan
+    ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n`)}
+    Total: ${rupiah(obj.total)}
+    Terima kasih.`;
+};
 
 
 // Konversi ke Rupiah
