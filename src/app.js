@@ -133,8 +133,7 @@ checkoutButton.addEventListener('click', async function (e) {
             body: data,
         });
         const token = await response.text();
-        console.log(token);
-        // window.snap.pay('token');
+        window.snap.pay(token);
     } catch (err) {
         console.log(err.message);
     }
